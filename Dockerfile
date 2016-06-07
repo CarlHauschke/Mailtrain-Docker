@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 
 RUN 
 	cd /usr/src/app \
-	git clone https://github.com/CarlHauschke/Mailtrain-Docker.git /media/build-mailtrain/ \
+	git clone git://github.com/andris9/mailtrain.git /media/build-mailtrain/ \
 	npm install --production \
 	cp config/default.toml config/production.toml \
 
