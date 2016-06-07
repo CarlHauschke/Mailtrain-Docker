@@ -16,4 +16,4 @@ RUN cd /usr/src/app && \
 	cp config/default.toml config/production.toml
 
 
-CMD [ "NODE_ENV=production npm start" ]
+CMD [ "production npm start" ]
