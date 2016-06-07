@@ -10,7 +10,8 @@ RUN apt-get update && \
 
 WORKDIR /usr/src/app
 
-RUN cd /usr/src/app && \
+RUN 
+	cd /usr/src/app && \
 	git clone git://github.com/andris9/mailtrain.git /media/build-mailtrain/ && \
 	npm install --production && \
 	cp /usr/src/app/config/default.toml /usr/src/app/config/production.toml
