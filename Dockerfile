@@ -16,4 +16,4 @@ ONBUILD RUN cd /usr/src/app && \
 			cp config/default.toml config/production.toml
 
 
-CMD [ "npm", "start", "production" ]
+CMD [ "npm", "start", "--production" ]
