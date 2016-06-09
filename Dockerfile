@@ -9,7 +9,6 @@ ONBUILD RUN apt-get update && \
 			mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
-VOLUME /usr/src/app
 
 ONBUILD RUN cd /usr/src/app && \
 			git clone git://github.com/andris9/mailtrain.git /usr/src/app/ && \
