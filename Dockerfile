@@ -1,19 +1,19 @@
-FROM node:6
+FROM ubuntu:14.04
 
 MAINTAINER Carl Hauschke <mail@carl.technology>
 
-EXPOSE 3000
+EXPOSE 22 \
+		80 \
+		443 \
+		25
 
 RUN apt-get update && \
-	apt-get install -y git && \
-	mkdir -p /usr/src/app
+	curl https://raw.githubusercontent.com/andris9/mailtrain/master/setup/install.sh | sudo bash \
+	systemctl disable mailtrain.service \
+	rm /etc/systemd/system/mailtrain.service \
+	rm /etc/init/mailtrain.conf
 
-WORKDIR /usr/src/app
-
-RUN cd /usr/src/app && \
-	git clone git://github.com/andris9/mailtrain.git /usr/src/app/ && \
-	npm install --production && \
-	cp config/default.toml config/production.toml
+WORKDIR /opt/mailtrain
 
 
-CMD [ "npm", "start", "--production" ]
+CMD [ "NODE_ENV=production npm start" ]
